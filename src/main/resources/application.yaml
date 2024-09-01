@@ -1,0 +1,11 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${DB_NAME}
+    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USERNAME}
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  thymeleaf:
+    cache: false
