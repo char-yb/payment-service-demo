@@ -38,4 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
-.env
+.*env
+.DS_Store
+**/.DS_Store
