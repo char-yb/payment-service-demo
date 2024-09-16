@@ -1,4 +1,4 @@
-package com.payment.demo.payment.adapter.out.web.config
+package com.payment.demo.payment.adapter.out.web.toss.config
 
 import com.payment.demo.common.properties.PspTossProperties
 import org.springframework.context.annotation.Bean
