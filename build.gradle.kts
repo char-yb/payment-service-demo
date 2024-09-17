@@ -30,10 +30,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("io.asyncer:r2dbc-mysql:1.1.2")
     implementation("io.r2dbc:r2dbc-pool")
+    implementation("io.r2dbc:r2dbc-h2")
 
-    runtimeOnly("com.h2database:h2")
     runtimeOnly("com.mysql:mysql-connector-j")
-    runtimeOnly("io.asyncer:r2dbc-mysql")
     runtimeOnly("io.r2dbc:r2dbc-h2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -43,8 +42,10 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     testImplementation("io.r2dbc:r2dbc-h2")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
     testImplementation("io.r2dbc:r2dbc-pool")
-    testImplementation("com.h2database:h2")
 }
 
 kotlin {

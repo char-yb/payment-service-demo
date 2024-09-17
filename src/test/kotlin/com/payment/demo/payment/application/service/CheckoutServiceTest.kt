@@ -18,8 +18,8 @@ import reactor.test.StepVerifier
 import java.util.UUID
 
 @SpringBootTest
-@Import(PaymentTestConfiguration::class)
 @ActiveProfiles("test")
+@Import(PaymentTestConfiguration::class)
 class CheckoutServiceTest (
     @Autowired private val checkoutUseCase: CheckoutUseCase,
     @Autowired private val paymentDatabaseHelper: PaymentDatabaseHelper,
