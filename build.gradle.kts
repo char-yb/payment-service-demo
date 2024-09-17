@@ -28,14 +28,23 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("io.asyncer:r2dbc-mysql:1.1.2")
+    implementation("io.r2dbc:r2dbc-pool")
+
     runtimeOnly("com.h2database:h2")
     runtimeOnly("com.mysql:mysql-connector-j")
     runtimeOnly("io.asyncer:r2dbc-mysql")
     runtimeOnly("io.r2dbc:r2dbc-h2")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    testImplementation("io.r2dbc:r2dbc-h2")
+    testImplementation("io.r2dbc:r2dbc-pool")
+    testImplementation("com.h2database:h2")
 }
 
 kotlin {
