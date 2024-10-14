@@ -42,7 +42,7 @@ class CheckoutService(
                     orderId = command.idempotencyKey,
                     productId = it.id,
                     amount = it.amount,
-                    paymentStatus = PaymentStatus.NOT_STARTED
+                    paymentOrderStatus = PaymentOrderStatus.NOT_STARTED
                 )
             }
         )

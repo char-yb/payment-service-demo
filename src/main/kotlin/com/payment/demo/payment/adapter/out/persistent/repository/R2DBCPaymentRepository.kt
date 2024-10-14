@@ -1,7 +1,6 @@
 package com.payment.demo.payment.adapter.out.persistent.repository
 
 import com.payment.demo.payment.domain.PaymentEvent
-import org.hibernate.sql.Insert
 import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.reactive.TransactionalOperator
@@ -46,7 +45,7 @@ class R2DBCPaymentRepository(
         paymentEventId: Long
     ): Mono<Long> {
         val valueClauses = paymentEvent.paymentOrders.joinToString(",") { paymentOrder ->
-            "($paymentEventId, ${paymentOrder.sellerId}, '${paymentOrder.orderId}', '${paymentOrder.productId}', ${paymentOrder.amount}, '${paymentOrder.paymentStatus}')"
+            "($paymentEventId, ${paymentOrder.sellerId}, '${paymentOrder.orderId}', '${paymentOrder.productId}', ${paymentOrder.amount}, '${paymentOrder.paymentOrderStatus}')"
         }
         return databaseClient.sql(INSERT_PAYMENT_ORDER_QUERY(valueClauses))
             .fetch()
@@ -65,7 +64,7 @@ class R2DBCPaymentRepository(
 
         // 하나의 insert 쿼리로 여러 개의 데이터들을 한 번에 삽입하는 코드(bulk insert)
         val INSERT_PAYMENT_ORDER_QUERY = fun (valueClauses: String) = """
-            INSERT INTO payment_orders (payment_event_id, seller_id, order_id, product_id, amount, payment_status)
+            INSERT INTO payment_orders (payment_event_id, seller_id, order_id, product_id, amount, payment_order_status)
             VALUES $valueClauses
         """.trimIndent()
     }

@@ -2,7 +2,7 @@ package com.payment.demo.test
 
 import com.payment.demo.payment.domain.PaymentEvent
 import com.payment.demo.payment.domain.PaymentOrder
-import com.payment.demo.payment.domain.PaymentStatus
+import com.payment.demo.payment.domain.PaymentOrderStatus
 import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.transaction.reactive.TransactionalOperator
 import reactor.core.publisher.Mono
@@ -36,7 +36,7 @@ class R2DBCPaymentDatabaseHelper(
                                 orderId = row["order_id"] as String,
                                 productId = row["product_id"] as Long,
                                 amount = row["amount"] as BigDecimal,
-                                paymentStatus = PaymentStatus.get(row["payment_order_status"] as String),
+                                paymentOrderStatus = PaymentOrderStatus.get(row["payment_order_status"] as String),
                                 isLedgerUpdated = ((row["is_ledger_updated"] as Int) == 1),
                                 isWalletUpdated = ((row["is_wallet_updated"] as Int) == 1),
                             )
