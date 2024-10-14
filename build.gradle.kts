@@ -31,9 +31,11 @@ dependencies {
     implementation("io.asyncer:r2dbc-mysql:1.1.2")
     implementation("io.r2dbc:r2dbc-pool")
     implementation("io.r2dbc:r2dbc-h2")
+    implementation("io.netty:netty-resolver-dns-native-macos:4.1.112.Final:osx-aarch_64")
 
     runtimeOnly("com.mysql:mysql-connector-j")
     runtimeOnly("io.r2dbc:r2dbc-h2")
+    runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.112.Final:osx-aarch_64")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
